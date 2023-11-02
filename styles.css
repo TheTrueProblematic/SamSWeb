@@ -1,0 +1,153 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Hamburger Menu */
+#hamburger-menu {
+    display: none; /* Hidden by default, will be shown in responsive design */
+    cursor: pointer;
+    font-size: 2em;
+    padding: 1em;
+    user-select: none;
+    color: white; /* Color of the hamburger icon */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3; /* Ensure it's above other elements */
+}
+
+/* Navigation Menu */
+nav {
+    background-color: #333;
+    padding: 1em 0;
+    position: relative; /* For absolute positioning of the hamburger menu */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background: #f8b400;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after, nav a:focus::after {
+    width: 100%;
+}
+
+header, footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: white;
+}
+
+#carousel {
+    margin: 2em auto;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    display: none;
+    position: relative;
+}
+
+#carousel-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#carousel-controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2em;
+    margin: 0 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Responsive design for the nav menu */
+@media only screen and (max-width: 600px) {
+    /* Show the hamburger menu */
+    #hamburger-menu {
+        display: block;
+    }
+
+    /* Hide the menu by default on small screens */
+    nav ul {
+        position: absolute;
+        top: 3em; /* Below the hamburger menu */
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background-color: #333;
+    }
+
+    /* Show the menu when it's toggled */
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 0;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        padding: 1em; /* Larger area for touch */
+        box-sizing: border-box; /* Include padding in width */
+        border-bottom: 1px solid #666; /* Add a separator between menu items */
+    }
+
+    #carousel {
+        margin: 1em auto;
+        width: 95vw;
+    }
+}
+
+/* Additional styles may be added here if needed */
